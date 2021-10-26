@@ -1,1 +1,8 @@
 <p>pokemon-catturati works!</p>
+
+<ng-container *ngFor="let item of pokemon">
+  <div  [routerLink]="['./details',TYPE , item.id]">
+    <img src="{{ item.sprites.front_default }}" alt="">
+    <p>{{ item.name }}</p>
+  </div>
+</ng-container>

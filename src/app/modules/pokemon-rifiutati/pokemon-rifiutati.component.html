@@ -1,1 +1,9 @@
-<p>pokemon-rifiutati works!</p>
+<p>Pokemon rifiutati: {{ pokemon.length }}</p>
+
+<ng-container *ngFor="let item of pokemon">
+  <div [routerLink]="['./details',TYPE , item.id]">
+    <img src="{{ item.sprites.front_default }}" alt="">
+    <p>{{ item.id }}</p>
+    <p>{{ item.name }}</p>
+  </div>
+</ng-container>
