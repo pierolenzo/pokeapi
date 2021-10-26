@@ -6,8 +6,17 @@
 
 <div>
   <h2>Statistiche</h2>
+  <div *ngFor="let s of pokemon.stats">
+    <p>{{ s.stat.name }}: {{ s.base_stat }}</p>
+  </div>
 </div>
 
 <div>
   <h2>Mosse</h2>
+</div>
+
+<div>
+  <button class="btn btn-primary my-3" (click)="goBack()">
+    Back
+  </button>
 </div>
