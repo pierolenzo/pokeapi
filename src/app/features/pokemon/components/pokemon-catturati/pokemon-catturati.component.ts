@@ -1,9 +1,9 @@
-import { Pokemon } from 'src/app/models/Pokemon';
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { PokemonDataService } from 'src/app/core/services/pokemon-data.service';
-import { Observable, Subscription } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+
+import { Pokemon } from 'src/app/features/pokemon/models/Pokemon';
+import { PokemonDataService } from 'src/app/core/services/pokemon-data.service';
 
 @Component({
   selector: 'app-pokemon-catturati',
@@ -11,9 +11,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./pokemon-catturati.component.sass']
 })
 export class PokemonCatturatiComponent implements OnInit, OnDestroy {
-  private subscription!: Subscription;
   public pokemon!: Pokemon[];
   public TYPE: number;
+  private subscription!: Subscription;
 
   constructor(private pokemonDataService: PokemonDataService, private route: Router) {
     this.TYPE = 1;

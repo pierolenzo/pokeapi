@@ -1,4 +1,3 @@
-
 <div *ngIf="pokemon" class="d-flex justify-content-around">
   <div>
     <p>ID: {{ pokemon.id }}</p>
@@ -9,12 +8,17 @@
 
   <div>
     <p>Name: {{ pokemon.name }}</p>
-    <img src="{{ pokemon.sprites.front_default }}" alt="">
+    <img src="{{ pokemon.sprites.front_default }}" alt="" />
   </div>
 </div>
 
-<button class="btn btn-primary" (click)="catturaPokemon(pokemon)">Cattura</button>
-<button class="btn btn-danger" (click)="rifiutaPokemon(pokemon)">Rifiuta</button>
+<button class="btn btn-primary" (click)="catturaPokemon(pokemon)">
+  Cattura
+</button>
+
+<button class="btn btn-danger" (click)="rifiutaPokemon(pokemon)">
+  Rifiuta
+</button>
 
 <app-pokemon-catturati></app-pokemon-catturati>
 

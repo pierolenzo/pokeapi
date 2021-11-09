@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PokemonDetailsComponent } from '../pokemon-details/pokemon-details.component';
-import { PokemonModuleComponent } from './pokemon-module.component';
+import { PokemonComponent } from './components/pokemon-content/pokemon.component';
 
 const routes: Routes = [
-  { path: '', component: PokemonModuleComponent },
+  { path: '', component: PokemonComponent },
   { path: 'details/:type/:id', component: PokemonDetailsComponent }
 ];
 
@@ -12,4 +12,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class PokemonModuleRoutingModule { }
+export class PokemonRoutingModule { }

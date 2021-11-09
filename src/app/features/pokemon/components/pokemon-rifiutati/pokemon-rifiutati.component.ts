@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { tap } from 'rxjs/operators';
+
+import { Pokemon } from 'src/app/features/pokemon/models/Pokemon';
 import { PokemonDataService } from 'src/app/core/services/pokemon-data.service';
-import { Pokemon } from 'src/app/models/Pokemon';
 
 @Component({
   selector: 'app-pokemon-rifiutati',
@@ -10,9 +10,9 @@ import { Pokemon } from 'src/app/models/Pokemon';
   styleUrls: ['./pokemon-rifiutati.component.sass']
 })
 export class PokemonRifiutatiComponent implements OnInit {
-  private subscription!: Subscription;
   public pokemon!: Pokemon[];
   public TYPE: number;
+  private subscription!: Subscription;
 
   constructor(private pokemonDataService: PokemonDataService) {
     this.TYPE = 0;

@@ -1,17 +1,18 @@
-import { Pokemon } from './../../models/Pokemon';
+import {  Subscription } from 'rxjs';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+
+import { Pokemon } from 'src/app/features/pokemon/models/Pokemon';
 import { PokemonDataService } from 'src/app/core/services/pokemon-data.service';
-import { Subscriber, Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-pokemon-module',
-  templateUrl: './pokemon-module.component.html',
-  styleUrls: ['./pokemon-module.component.sass']
+  selector: 'app-pokemon',
+  templateUrl: './pokemon.component.html',
+  styleUrls: ['./pokemon.component.sass']
 })
-export class PokemonModuleComponent implements OnInit, OnDestroy {
-  private subscribe!: Subscription;
+export class PokemonComponent implements OnInit, OnDestroy {
   public numberPokemon: number;
   public pokemon!: Pokemon;
+  private subscribe!: Subscription;
 
   constructor(private pokemonDataService: PokemonDataService) {
     this.numberPokemon = 1;
