@@ -2,17 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PokemonRoutingModule } from './pokemon-routing.module';
-import { PokemonComponent } from './components/pokemon-content/pokemon.component';
+import { PokemonComponent } from './pages/pokemon-content/pokemon.component';
 import { PokemonRifiutatiComponent } from './components/pokemon-rifiutati/pokemon-rifiutati.component';
-import { PokemonCatturatiComponent } from './components/pokemon-catturati/pokemon-catturati.component';
-import { PokemonDetailsComponent } from '../pokemon-details/pokemon-details.component';
+import { PokemonCatchedComponent } from './components/pokemon-catched/pokemon-catched.component';
+import { PokemonDetailsComponent } from './pages/pokemon-details/pokemon-details.component';
 
 
 @NgModule({
   declarations: [
     PokemonComponent,
     PokemonRifiutatiComponent,
-    PokemonCatturatiComponent,
+    PokemonCatchedComponent,
     PokemonDetailsComponent
   ],
   imports: [

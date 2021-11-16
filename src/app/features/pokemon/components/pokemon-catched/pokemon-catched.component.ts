@@ -6,11 +6,11 @@ import { Pokemon } from 'src/app/features/pokemon/models/Pokemon';
 import { PokemonDataService } from 'src/app/core/services/pokemon-data.service';
 
 @Component({
-  selector: 'app-pokemon-catturati',
-  templateUrl: './pokemon-catturati.component.html',
-  styleUrls: ['./pokemon-catturati.component.sass']
+  selector: 'app-pokemon-catched',
+  templateUrl: './pokemon-catched.component.html',
+  styleUrls: ['./pokemon-catched.component.sass']
 })
-export class PokemonCatturatiComponent implements OnInit, OnDestroy {
+export class PokemonCatchedComponent implements OnInit, OnDestroy {
   public pokemon!: Pokemon[];
   public TYPE: number;
   private subscription!: Subscription;

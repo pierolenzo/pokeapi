@@ -1,4 +1,4 @@
-<div class="container d-flex justify-content-center">
+<div class="container d-flex justify-content-between">
 <!-- <div class="d-flex"> -->
 
       <div>
@@ -7,7 +7,7 @@
 
       <div>
         <div *ngIf="pokemon" class="d-flex justify-content-around py-5">
-          <div class="card rounded" style="width: 18rem">
+          <div class="card rounded bg-warning" style="width: 18rem">
             <div class="card-body">
               <h5 class="card-title text-center">Dettagli</h5>
               <p class="card-text">ID: {{ pokemon.id }}</p>
@@ -16,10 +16,10 @@
               <p class="card-text">Height: {{ pokemon.height }}</p>
             </div>
           </div>
-          <div class="card rounded" style="width: 18rem">
+          <div class="" style="width: 18rem">
             <div class="card-body text-center">
               <p class="card-title">{{ pokemon.name }}</p>
-              <img src="{{ pokemon.sprites.front_default }}" alt="" />
+              <img src="{{ pokemon.sprites.front_default }}" alt="pokemon image" />
             </div>
           </div>
         </div>
@@ -40,7 +40,7 @@
       </div>
 
       <div>
-        <app-pokemon-catturati></app-pokemon-catturati>
+        <app-pokemon-catched></app-pokemon-catched>
       </div>
 <!-- </div> -->
 
