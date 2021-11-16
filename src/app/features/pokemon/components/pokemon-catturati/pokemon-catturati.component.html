@@ -1,8 +1,14 @@
 <p>pokemon-catturati works!</p>
 
-<ng-container *ngFor="let item of pokemon">
-  <div  [routerLink]="['./details',TYPE , item.id]">
-    <img src="{{ item.sprites.front_default }}" alt="">
-    <p>{{ item.name }}</p>
+<div class="card">
+  <div class="card-body">
+    <ul class="list-group list-group-flush">
+      <ng-container *ngFor="let item of pokemon">
+        <div class="list-group-item" [routerLink]="['./details',TYPE , item.id]">
+          <img src="{{ item.sprites.front_default }}" alt="">
+          <p>{{ item.name }}</p>
+        </div>
+      </ng-container>
+    </ul>
   </div>
-</ng-container>
+</div>
