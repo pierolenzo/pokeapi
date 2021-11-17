@@ -1,5 +1,4 @@
 import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Pokemon } from 'src/app/features/pokemon/models/Pokemon';
@@ -15,21 +14,13 @@ export class PokemonCatchedComponent implements OnInit, OnDestroy {
   public TYPE: number;
   private subscription!: Subscription;
 
-  constructor(private pokemonDataService: PokemonDataService, private route: Router) {
+  constructor(private pokemonDataService: PokemonDataService) {
     this.TYPE = 1;
    }
 
   ngOnInit(): void {
-    this.subscription = this.pokemonDataService.pokemonCatturati$
+    this.subscription = this.pokemonDataService.catchedPokemon$
       .subscribe(data => this.pokemon = data)
-  }
-
-  /**
-   * selectPokemon()
-   */
-  public selectPokemon(pokemonSelected: Pokemon) {
-    this.route.navigate(['/pokemon-details', pokemonSelected.id])
-    console.log(pokemonSelected.id)
   }
 
   ngOnDestroy(): void {

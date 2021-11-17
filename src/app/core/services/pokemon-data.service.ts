@@ -9,28 +9,28 @@ import { Pokemon } from 'src/app/features/pokemon/models/Pokemon';
   providedIn: 'root',
 })
 export class PokemonDataService {
-  public pokemonCatturati$!: Observable<Pokemon[]>;
-  public pokemonRifiutati$!: Observable<Pokemon[]>;
-  public pokesCatturati!: Pokemon[];
-  public pokesRifiutati!: Pokemon[];
+  public catchedPokemon$: Observable<Pokemon[]>;
+  public rejectedPokemon$: Observable<Pokemon[]>;
+  public catchedPokemons: Pokemon[];
+  public rejectedPokemons: Pokemon[];
 
   private URL: string;
   private MAX_POKEMON: number;
   private POKEMON_CATTURATI_KEY: string = 'pokemonCatturati';
   private POKEMON_RIFIUTATI_KEY: string = 'pokemonRifiutati';
-  private pokemonCatturati!: BehaviorSubject<Pokemon[]>;
-  private pokemonRifiutati!: BehaviorSubject<Pokemon[]>;
+  private catchedPokemonsSubject: BehaviorSubject<Pokemon[]>;
+  private rejectPokemonsSubject: BehaviorSubject<Pokemon[]>;
 
   constructor(private http: HttpClient) {
     this.URL = 'https://pokeapi.co/api/v2/pokemon';
     this.MAX_POKEMON = 898;
-    this.pokesCatturati = [];
-    this.pokesRifiutati = [];
+    this.catchedPokemons = [];
+    this.rejectedPokemons = [];
 
-    this.pokemonCatturati = new BehaviorSubject<Pokemon[]>([]);
-    this.pokemonRifiutati = new BehaviorSubject<Pokemon[]>([]);
-    this.pokemonCatturati$ = this.pokemonCatturati.asObservable();
-    this.pokemonRifiutati$ = this.pokemonRifiutati.asObservable();
+    this.catchedPokemonsSubject = new BehaviorSubject<Pokemon[]>([]);
+    this.rejectPokemonsSubject = new BehaviorSubject<Pokemon[]>([]);
+    this.catchedPokemon$ = this.catchedPokemonsSubject.asObservable();
+    this.rejectedPokemon$ = this.rejectPokemonsSubject.asObservable();
   }
 
   /**
@@ -46,18 +46,26 @@ export class PokemonDataService {
    * catturaPokemon()
    */
   public catturaPokemon(pokemon: Pokemon) {
-    this.pokesCatturati.push(pokemon);
-    this.pokemonCatturati.next(this.pokesCatturati);
-    console.log('service catturaPokemon', pokemon);
+    if (!this.catchedPokemons.includes(pokemon)) {
+      this.catchedPokemons.push(pokemon);
+      this.catchedPokemonsSubject.next(this.catchedPokemons);
+      console.log('service catturaPokemon', pokemon);
+    } else {
+      console.error(`Pokemon ${pokemon.name} già presente`);
+    }
   }
 
   /**
    * rifiutaPokemon()
    */
   public rifiutaPokemon(pokemon: Pokemon) {
-    this.pokesRifiutati.push(pokemon);
-    this.pokemonRifiutati.next(this.pokesRifiutati);
-    console.log('service rifiutaPokemon', pokemon);
+    if (!this.rejectedPokemons.includes(pokemon)) {
+      this.rejectedPokemons.push(pokemon);
+      this.rejectPokemonsSubject.next(this.rejectedPokemons);
+      console.log('service rifiutaPokemon', pokemon);
+    } else {
+      console.error(`Pokemon ${pokemon.name} già presente`);
+    }
   }
 
   /**

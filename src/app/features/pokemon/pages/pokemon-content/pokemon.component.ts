@@ -12,14 +12,20 @@ import { PokemonDataService } from 'src/app/core/services/pokemon-data.service';
 export class PokemonComponent implements OnInit, OnDestroy {
   public numberPokemon: number;
   public pokemon!: Pokemon;
-  private subscribe!: Subscription;
+  public pokemons: Pokemon[];
+
+  private subscribePokemon!: Subscription;
+  private subscribePokemons!: Subscription;
 
   constructor(private pokemonDataService: PokemonDataService) {
     this.numberPokemon = 1;
+    this.pokemons = [];
    }
 
   ngOnInit(): void {
     this.numberPokemon = this.pokemonDataService.generateRndom();
+    this.subscribePokemons = this.pokemonDataService.catchedPokemon$
+                              .subscribe(data => this.pokemons = data);
     this.getPokemon();
   }
 
@@ -27,7 +33,7 @@ export class PokemonComponent implements OnInit, OnDestroy {
    * getPokemon()
    */
   public getPokemon() {
-    this.subscribe = this.pokemonDataService.get().subscribe(data => this.pokemon = data)
+    this.subscribePokemon = this.pokemonDataService.get().subscribe(data => this.pokemon = data);
   }
 
   /**
@@ -49,7 +55,8 @@ export class PokemonComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subscribe.unsubscribe()
+    this.subscribePokemon.unsubscribe();
+    this.subscribePokemons.unsubscribe();
   }
 
 }

@@ -24,13 +24,13 @@ export class PokemonDetailsComponent implements OnInit {
     this.activatedRoute.params.subscribe(data => this.params = data)
 
     if (this.params.type == 1) {
-      this.pokemonDataService.pokemonCatturati$.subscribe(data => this.pokemons = data)
+      this.pokemonDataService.catchedPokemon$.subscribe(data => this.pokemons = data)
       const _pokemon = this.pokemons.find(item => item.id == this.params.id);
       if (_pokemon) {
         this.pokemon = _pokemon;
       }
     } else {
-      this.pokemonDataService.pokemonRifiutati$.subscribe(data => this.pokemons = data)
+      this.pokemonDataService.rejectedPokemon$.subscribe(data => this.pokemons = data)
       const _pokemon = this.pokemons.find(item => item.id == this.params.id);
       if (_pokemon) {
         this.pokemon = _pokemon;

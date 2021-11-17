@@ -26,6 +26,7 @@
     <div class="d-flex justify-content-center mb-2">
       <button
         class="btn btn-success mx-2 rounded-pill"
+        [disabled]="!pokemon || pokemons.length >= 6"
         (click)="catturaPokemon(pokemon)"
       >
         Cattura
@@ -36,6 +37,10 @@
       >
         Rifiuta
       </button>
+    </div>
+
+    <div class="text-center text-danger" *ngIf="pokemons.length === 6">
+      <small>Team Full!</small>
     </div>
   </div>
 
