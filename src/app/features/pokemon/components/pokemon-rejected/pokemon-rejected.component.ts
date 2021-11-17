@@ -5,9 +5,9 @@ import { Pokemon } from 'src/app/features/pokemon/models/Pokemon';
 import { PokemonDataService } from 'src/app/core/services/pokemon-data.service';
 
 @Component({
-  selector: 'app-pokemon-rifiutati',
-  templateUrl: './pokemon-rifiutati.component.html',
-  styleUrls: ['./pokemon-rifiutati.component.sass']
+  selector: 'app-pokemon-rejected',
+  templateUrl: './pokemon-rejected.component.html',
+  styleUrls: ['./pokemon-rejected.component.sass']
 })
 export class PokemonRifiutatiComponent implements OnInit {
   public pokemon!: Pokemon[];
